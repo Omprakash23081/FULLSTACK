@@ -7,8 +7,9 @@ const app = express();
 // CORS Configuration
 app.use(
   cors({
+    //it will allow which will access your backend
     origin: [
-      "https://hellowduniya.netlify.app",
+      "https://hellowduniya.netlify.app", // this is frontend url
       "http://localhost:5174",
       "http://localhost:5173",
     ],
@@ -16,17 +17,13 @@ app.use(
   })
 );
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
 
-// Test route
-app.get("/api/health", (req, res) => {
-  res.json({ status: "OK" });
-});
-
 // Import routers
 import userRouter from "./router/user.rout.js";
-app.use("/api/users", userRouter);
+app.use("/api/users", userRouter); ///api/users is prefix
 
 // Error handling
 app.use((err, req, res, next) => {
