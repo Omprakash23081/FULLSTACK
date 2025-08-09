@@ -7,7 +7,11 @@ const app = express();
 // CORS Configuration
 app.use(
   cors({
-    origin: ["https://hellowduniya.netlify.app", "http://localhost:5173"],
+    origin: [
+      "https://hellowduniya.netlify.app",
+      "http://localhost:5174",
+      "http://localhost:5173",
+    ],
     credentials: true,
   })
 );
