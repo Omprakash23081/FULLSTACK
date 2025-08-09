@@ -2,12 +2,17 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
-const app = express();
 app.use(
   cors({
-    origin: "https://hellowduniya.netlify.app/",
+    origin: [
+      "https://hellowduniya.netlify.app", // production frontend
+      "http://localhost:5173", // local dev
+    ],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
   })
 );
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
