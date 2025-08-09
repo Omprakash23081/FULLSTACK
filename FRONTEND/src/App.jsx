@@ -1,18 +1,13 @@
-// App.jsx
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
-
-const API_BASE = "https://hellowduniya.netlify.app" || "/api";
+import { API_BASE } from "./config";
 
 function App() {
   const [message, setMessage] = useState("");
 
   const handleClick = async () => {
     try {
-      const response = await axios.post(`${API_BASE}/users/login`, {
-        email: "test@example.com", // replace with real data
-        password: "123456",
-      });
+      const response = await axios.post(`${API_BASE}/users/login`);
       setMessage(response.data.message);
     } catch (error) {
       console.error(error);
