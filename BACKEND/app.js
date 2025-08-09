@@ -1,23 +1,25 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+
 const app = express();
 
-app.use(
-  cors({
-    origin: [
-      "https://hellowduniya.netlify.app", // production frontend
-      "http://localhost:5173", // local dev
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+// Enhanced CORS configuration
+const corsOptions = {
+  origin: ["https://hellowduniya.netlify.app", "http://localhost:5173"],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+// Handle OPTIONS requests
+app.options("*", cors(corsOptions));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(express.static("../public"));
 
 import rout from "./router/user.rout.js";
 

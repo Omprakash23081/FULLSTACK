@@ -8,7 +8,7 @@ function App() {
   const handleClick = async () => {
     try {
       const response = await axios.post(
-        `${API_BASE}/users/login`,
+        `${API_BASE}/api/users/login`,
         {},
         {
           withCredentials: true,
@@ -23,7 +23,6 @@ function App() {
       setMessage("Error fetching message");
     }
   };
-
   return (
     <>
       {message ? <h1>{message}</h1> : <h1>Hello Duniya</h1>}
