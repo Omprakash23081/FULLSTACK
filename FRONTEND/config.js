@@ -1,4 +1,1 @@
-export const API_BASE =
-  import.meta.env.MODE === "development"
-    ? "/api"
-    : "https://api-server-3q24.onrender.com";
+export const API_BASE = "https://api-server-3q24.onrender.com";

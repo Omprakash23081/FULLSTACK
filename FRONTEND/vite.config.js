@@ -6,8 +6,11 @@ export default defineConfig({
   plugins: [react()],
   server: {
     proxy: {
-      // "/api/users": "http://localhost:3000/",
-      "/api": "https://api-server-3q24.onrender.com/",
+      "/api": {
+        target: "http://localhost:3000",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
     },
   },
 });

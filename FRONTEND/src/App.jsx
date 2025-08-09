@@ -7,7 +7,16 @@ function App() {
 
   const handleClick = async () => {
     try {
-      const response = await axios.post(`${API_BASE}/users/login`);
+      const response = await axios.post(
+        `${API_BASE}/users/login`,
+        {},
+        {
+          withCredentials: true,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
       setMessage(response.data.message);
     } catch (error) {
       console.error(error);
