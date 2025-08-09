@@ -7,7 +7,7 @@ export default defineConfig({
   server: {
     proxy: {
       // "/api/users": "http://localhost:3000/",
-      "/api": "fullstack-production-6f93.up.railway.app/",
+      "/api": "fullstack-production-6f93.up.railway.app",
     },
   },
 });
