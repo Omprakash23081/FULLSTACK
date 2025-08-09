@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { API_BASE } from "./config";
+import { API_BASE } from "../config.js";
 
 function App() {
   const [message, setMessage] = useState("");
