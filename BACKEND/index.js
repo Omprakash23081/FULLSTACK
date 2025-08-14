@@ -10,4 +10,6 @@ Conect()
       console.log(`app is lising on port ${PORT}`);
     })
   )
-  .catch((err) => console.log(`errer during connecting data base ${err}`));
+  .catch((err) =>
+    console.log(`errer during connecting data base come index ${err}`)
+  );

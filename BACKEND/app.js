@@ -25,10 +25,4 @@ app.use(cookieParser());
 import userRouter from "./router/user.rout.js";
 app.use("/api/users", userRouter); ///api/users is prefix
 
-// Error handling
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something broke!");
-});
-
 export default app;
