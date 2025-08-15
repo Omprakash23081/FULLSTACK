@@ -1,12 +1,11 @@
 import { v2 as cloudinary } from "cloudinary";
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_NAME,
-  api_key: process.env.MY_CLOUD_API_KEY,
-  api_secret: process.env.MY_CLOUD_API_SECRET,
-});
-
 const uplodeonCloudnary = async (localFile) => {
+  cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_NAME,
+    api_key: process.env.MY_CLOUD_API_KEY,
+    api_secret: process.env.MY_CLOUD_API_SECRET,
+  });
   try {
     if (!localFile) return null;
     const response = await cloudinary.uploader.upload(localFile, {
