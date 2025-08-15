@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import ApiError, { handleError } from "./utils/ApiError.js";
 
 const app = express();
 
@@ -16,7 +17,7 @@ app.use(
     credentials: true,
   })
 );
-
+app.use(handleError);
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cookieParser());
